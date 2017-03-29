@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F26F609E1E8BE43C006A3AB2 /* CurrentWeather.swift in Sources */ = {isa = PBXBuildFile; fileRef = F26F609D1E8BE43C006A3AB2 /* CurrentWeather.swift */; };
+		F26F60A01E8BE4E7006A3AB2 /* WeatherIconManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F26F609F1E8BE4E7006A3AB2 /* WeatherIconManager.swift */; };
 		F27045E61E8BDA0C0060C138 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F27045E51E8BDA0C0060C138 /* AppDelegate.swift */; };
 		F27045E81E8BDA0C0060C138 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F27045E71E8BDA0C0060C138 /* ViewController.swift */; };
 		F27045EB1E8BDA0C0060C138 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F27045E91E8BDA0C0060C138 /* Main.storyboard */; };
@@ -15,6 +17,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F26F609D1E8BE43C006A3AB2 /* CurrentWeather.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentWeather.swift; sourceTree = "<group>"; };
+		F26F609F1E8BE4E7006A3AB2 /* WeatherIconManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherIconManager.swift; sourceTree = "<group>"; };
 		F27045E21E8BDA0C0060C138 /* WeatherApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeatherApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F27045E51E8BDA0C0060C138 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F27045E71E8BDA0C0060C138 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -56,7 +60,9 @@
 			children = (
 				F27045E51E8BDA0C0060C138 /* AppDelegate.swift */,
 				F27045E71E8BDA0C0060C138 /* ViewController.swift */,
+				F26F609D1E8BE43C006A3AB2 /* CurrentWeather.swift */,
 				F27045E91E8BDA0C0060C138 /* Main.storyboard */,
+				F26F609F1E8BE4E7006A3AB2 /* WeatherIconManager.swift */,
 				F27045EC1E8BDA0C0060C138 /* Assets.xcassets */,
 				F27045EE1E8BDA0C0060C138 /* LaunchScreen.storyboard */,
 				F27045F11E8BDA0C0060C138 /* Info.plist */,
@@ -138,7 +144,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				F27045E81E8BDA0C0060C138 /* ViewController.swift in Sources */,
+				F26F609E1E8BE43C006A3AB2 /* CurrentWeather.swift in Sources */,
 				F27045E61E8BDA0C0060C138 /* AppDelegate.swift in Sources */,
+				F26F60A01E8BE4E7006A3AB2 /* WeatherIconManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -302,6 +310,7 @@
 				F27045F61E8BDA0C0060C138 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
