@@ -2,8 +2,8 @@
 //  APIWeatherManager.swift
 //  WeatherApp
 //
-//  Created by Aleksandr Kalinin on 30.03.17.
-//  Copyright © 2017 Aleksandr Kalinin. All rights reserved.
+//  Created by Ivan Akulov on 31/08/16.
+//  Copyright © 2016 Ivan Akulov. All rights reserved.
 //
 
 import Foundation
@@ -33,18 +33,16 @@ enum ForecastType: FinalURLPoint {
   }
 }
 
-final class APIWeatherManager: APIManager {
-  func fetch<T>(request: URLRequest, parse: ([String : AnyObject]) -> T?, completionHandler: @escaping (APIResult<T>) -> Void) where T : JSONDecodable {
-    return
-  }
 
+
+final class APIWeatherManager: APIManager {
   var sessionConfiguration: URLSessionConfiguration
-  
+
   lazy var session: URLSession = {
     return URLSession(configuration: self.sessionConfiguration)
   } ()
-  let apiKey: String
   
+  let apiKey: String
   
   init(sessionConfiguration: URLSessionConfiguration, apiKey: String) {
     self.sessionConfiguration = sessionConfiguration
@@ -59,12 +57,24 @@ final class APIWeatherManager: APIManager {
     let request = ForecastType.Current(apiKey: self.apiKey, coordinates: coordinates).request
     
     fetch(request: request, parse: { (json) -> CurrentWeather? in
-      if let dictonary = json["currently"] as? [String: AnyObject] {
-        return CurrentWeather(JSON: dictonary)
+      if let dictionary = json["currently"] as? [String: AnyObject] {
+        return CurrentWeather(JSON: dictionary)
       } else {
         return nil
       }
-    }, completionHandler: completionHandler)
+      
+      }, completionHandler: completionHandler)
   }
-  
 }
+
+
+
+
+
+
+
+
+
+
+
+

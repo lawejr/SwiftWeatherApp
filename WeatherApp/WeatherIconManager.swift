@@ -2,21 +2,22 @@
 //  WeatherIconManager.swift
 //  WeatherApp
 //
-//  Created by Aleksandr Kalinin on 29.03.17.
-//  Copyright © 2017 Aleksandr Kalinin. All rights reserved.
+//  Created by Ivan Akulov on 24/08/16.
+//  Copyright © 2016 Ivan Akulov. All rights reserved.
 //
 
 import Foundation
 import UIKit
 
 enum WeatherIconManager: String {
+  
   case ClearDay = "clear-day"
   case ClearNight = "clear-night"
   case Rain = "rain"
   case Snow = "snow"
   case Sleet = "sleet"
   case Wind = "wind"
-  case For = "fog"
+  case Fog = "fog"
   case Cloudy = "cloudy"
   case PartlyCloudyDay = "partly-cloudy-day"
   case PartlyCloudyNight = "partly-cloudy-night"
@@ -25,17 +26,17 @@ enum WeatherIconManager: String {
   init(rawValue: String) {
     switch rawValue {
     case "clear-day": self = .ClearDay
-    case "clear-night": self =  .ClearNight
+    case "clear-night": self = .ClearNight
     case "rain": self = .Rain
     case "snow": self = .Snow
     case "sleet": self = .Sleet
     case "wind": self = .Wind
-    case "fog": self = .For
+    case "fog": self = .Fog
     case "cloudy": self = .Cloudy
     case "partly-cloudy-day": self = .PartlyCloudyDay
-    case "partly-cloudy-night": self = .PartlyCloudyNight
-    
+    case "partly-cloudy-day": self = .PartlyCloudyNight
     default: self = .UnpredictedIcon
+      
     }
   }
 }
@@ -45,3 +46,8 @@ extension WeatherIconManager {
     return UIImage(named: self.rawValue)!
   }
 }
+
+
+
+
+

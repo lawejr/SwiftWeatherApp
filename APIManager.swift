@@ -2,8 +2,8 @@
 //  APIManager.swift
 //  WeatherApp
 //
-//  Created by Aleksandr Kalinin on 30.03.17.
-//  Copyright © 2017 Aleksandr Kalinin. All rights reserved.
+//  Created by Ivan Akulov on 30/08/16.
+//  Copyright © 2016 Ivan Akulov. All rights reserved.
 //
 
 import Foundation
@@ -31,12 +31,13 @@ protocol APIManager {
   var session: URLSession { get }
   
   func JSONTaskWith(request: URLRequest, completionHandler: @escaping JSONCompletionHandler) -> JSONTask
-  func fetch<T: JSONDecodable>(request: URLRequest, parse: ([String: AnyObject]) -> T?, completionHandler: @escaping (APIResult<T>) -> Void)
+  func fetch<T: JSONDecodable>(request: URLRequest, parse: @escaping ([String: AnyObject]) -> T?, completionHandler: @escaping (APIResult<T>) -> Void)
+  
 }
 
 extension APIManager {
   func JSONTaskWith(request: URLRequest, completionHandler: @escaping JSONCompletionHandler) -> JSONTask {
-    
+  
     let dataTask = session.dataTask(with: request) { (data, response, error) in
       
       guard let HTTPResponse = response as? HTTPURLResponse else {
@@ -49,7 +50,7 @@ extension APIManager {
         completionHandler(nil, nil, error)
         return
       }
-      
+    
       if data == nil {
         if let error = error {
           completionHandler(nil, HTTPResponse, error)
@@ -64,7 +65,7 @@ extension APIManager {
             completionHandler(nil, HTTPResponse, error)
           }
         default:
-          print("No information about response \(HTTPResponse.statusCode)")
+          print("We have got response status \(HTTPResponse.statusCode)")
         }
       }
     }
@@ -74,21 +75,38 @@ extension APIManager {
   func fetch<T>(request: URLRequest, parse: @escaping ([String: AnyObject]) -> T?, completionHandler: @escaping (APIResult<T>) -> Void) {
     
     let dataTask = JSONTaskWith(request: request) { (json, response, error) in
-      
-      guard let json = json else {
-        if let error = error {
+      DispatchQueue.main.async(execute: {
+        guard let json = json else {
+          if let error = error {
+            completionHandler(.Failure(error))
+          }
+          return
+        }
+        
+        if let value = parse(json) {
+          completionHandler(.Success(value))
+        } else {
+          let error = NSError(domain: SWINetworkingErrorDomain, code: 200, userInfo: nil)
           completionHandler(.Failure(error))
         }
-        return
-      }
-      
-      if let value = parse(json) {
-        completionHandler(.Success(value))
-      } else {
-        let error = NSError(domain: SWINetworkingErrorDomain, code: 200, userInfo: nil)
-        completionHandler(.Failure(error))
-      }
+        
+      })
     }
     dataTask.resume()
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

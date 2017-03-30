@@ -2,8 +2,8 @@
 //  AppDelegate.swift
 //  WeatherApp
 //
-//  Created by Aleksandr Kalinin on 29.03.17.
-//  Copyright © 2017 Aleksandr Kalinin. All rights reserved.
+//  Created by Ivan Akulov on 24/08/16.
+//  Copyright © 2016 Ivan Akulov. All rights reserved.
 //
 
 import UIKit

@@ -2,13 +2,12 @@
 //  ErrorManager.swift
 //  WeatherApp
 //
-//  Created by Aleksandr Kalinin on 30.03.17.
-//  Copyright © 2017 Aleksandr Kalinin. All rights reserved.
+//  Created by Ivan Akulov on 30/08/16.
+//  Copyright © 2016 Ivan Akulov. All rights reserved.
 //
 
 import Foundation
 
-// К имени константы NetworkingErrorDomain добавляется какой-нибудь уникальный префикс
-public let SWINetworkingErrorDomain = "ru.lawejr.WeatherApp.NetworkingError"
+public let SWINetworkingErrorDomain = "ru.swiftbook.WeatherApp.NetworkingError"
 public let MissingHTTPResponseError = 100
 public let UnexpectedResponseError = 200
